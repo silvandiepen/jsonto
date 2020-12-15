@@ -1,5 +1,11 @@
+export interface File {
+  name: string;
+  path: string;
+  file?: string;
+  data?: any;
+}
+
 export interface Config {
-  input: string;
-  output: string;
-  template: string;
+  files: File[];
+  compiled: string;
 }
