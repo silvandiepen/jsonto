@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "Convert json to....",
   "main": "dist/index.js",
+  "bin":"dist/index.js",
   "scripts": {
     "build": "tsc",
     "test": "jest"
