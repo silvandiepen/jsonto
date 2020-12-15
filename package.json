@@ -1,0 +1,28 @@
+{
+  "name": "@sil/jsonto",
+  "version": "0.0.1",
+  "description": "Convert json to....",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/silvandiepen/jsonto.git"
+  },
+  "keywords": [
+    "convert",
+    "json"
+  ],
+  "author": "Sil van Diepen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/silvandiepen/jsonto/issues"
+  },
+  "homepage": "https://github.com/silvandiepen/jsonto#readme",
+  "devDependencies": {
+    "@types/node": "^14.14.13",
+    "typescript": "^4.1.3"
+  }
+}
