@@ -1,6 +1,6 @@
 {
   "name": "@sil/jsonto",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "Convert json to....",
   "main": "dist/index.js",
   "bin": "dist/index.js",
