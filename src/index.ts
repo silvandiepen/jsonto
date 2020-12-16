@@ -15,10 +15,12 @@ import {
   BLOCK_JSON,
   BLOCK_END,
   BLOCK_SETTINGS,
+  BLOCK_LINE_SUCCESS,
 } from "cli-block";
 
 import ejs from "ejs";
 import { writeFile } from "fs";
+import { get } from "http";
 
 const getConfig = (): Config => {
   if (!process.argv[2]) console.warn("No source file defined");
@@ -71,6 +73,10 @@ const getSourceData = (config: Config): any => {
   const file: File | undefined = config.files.find((f) => f.name === "input");
   return file && file.data ? file.data : "";
 };
+const getSourceFile = (config: Config): File | undefined => {
+  const file: File | undefined = config.files.find((f) => f.name === "input");
+  return file;
+};
 const getOutputFile = (config: Config): any => {
   const file: File | undefined = config.files.find((f) => f.name === "output");
   return file && file.path ? file.path : "";
@@ -94,17 +100,21 @@ const buildFile = (config: Config): Config => {
 const createFile = async (config: Config): Promise<Config> => {
   const output = getOutputFile(config);
   const compiled = config.compiled;
+  const sourceFile = getSourceFile(config) || { path: "" };
 
   await writeCreatedFile(output, compiled);
+
+  await BLOCK_LINE_SUCCESS(`${sourceFile.path} → ${output}`);
 
   return config;
 };
 
 hello()
   .then(() => {
-    BLOCK_START("Hi!");
+    BLOCK_START("JSON To...");
   })
   .then(getConfig)
   .then(loadAllFiles)
   .then(buildFile)
-  .then(createFile);
+  .then(createFile)
+  .then(() => BLOCK_END());

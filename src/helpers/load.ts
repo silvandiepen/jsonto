@@ -33,7 +33,8 @@ export const loadFile = async (path: string): Promise<string> => {
 
 export const createFolder = async (path: string): Promise<void> => {
   //   console.log(path);
-  //   await mkdir(filePath(path), { recursive: true });
+  if (!fileExists(path)) await mkdir(filePath(path), { recursive: true });
+
   return;
 };
 
