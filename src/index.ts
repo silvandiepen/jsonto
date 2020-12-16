@@ -12,15 +12,11 @@ import {
   BLOCK_START,
   asyncForEach,
   hello,
-  BLOCK_JSON,
   BLOCK_END,
-  BLOCK_SETTINGS,
   BLOCK_LINE_SUCCESS,
 } from "cli-block";
 
 import ejs from "ejs";
-import { writeFile } from "fs";
-import { get } from "http";
 
 const getConfig = (): Config => {
   if (!process.argv[2]) console.warn("No source file defined");
