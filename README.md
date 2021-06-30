@@ -16,7 +16,7 @@ It is initially made to use create Sass/SCSS files from JSON. Defining settings 
 npm install @sil/jsonto --save-dev
 ```
 
-2. Create a (template)[#template]
+2. Create a [template](#template)
 
 3. Add the script to your package.json
 
