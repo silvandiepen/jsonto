@@ -1,13 +1,6 @@
 #!/usr/bin/env node
 
-import { Config, File } from "./types";
-import {
-  fileExists,
-  loadFile,
-  SassValue,
-  SassObject,
-  writeCreatedFile,
-} from "./helpers";
+import ejs from "ejs";
 import {
   BLOCK_START,
   asyncForEach,
@@ -16,9 +9,17 @@ import {
   BLOCK_LINE_SUCCESS,
 } from "cli-block";
 
-import ejs from "ejs";
+import { Config, File } from "./types";
+import {
+  fileExists,
+  loadFile,
+  SassValue,
+  SassObject,
+  writeCreatedFile,
+} from "./helpers";
 
 const getConfig = (): Config => {
+  
   if (!process.argv[2]) console.warn("No source file defined");
   if (!process.argv[3]) console.warn("No output file defined");
   if (!process.argv[4]) console.warn("No template file defined");
@@ -55,7 +56,6 @@ const loadAllFiles = async (config: Config): Promise<Config> => {
     if (file.file && file.path.includes(".json"))
       file.data = JSON.parse(file.file);
   });
-
   return config;
 };
 
@@ -65,14 +65,17 @@ const getTemplateFile = (config: Config): string => {
   );
   return file && file.file ? file.file : "";
 };
+
 const getSourceData = (config: Config): any => {
   const file: File | undefined = config.files.find((f) => f.name === "input");
   return file && file.data ? file.data : "";
 };
+
 const getSourceFile = (config: Config): File | undefined => {
   const file: File | undefined = config.files.find((f) => f.name === "input");
   return file;
 };
+
 const getOutputFile = (config: Config): any => {
   const file: File | undefined = config.files.find((f) => f.name === "output");
   return file && file.path ? file.path : "";
@@ -99,7 +102,6 @@ const createFile = async (config: Config): Promise<Config> => {
   const sourceFile = getSourceFile(config) || { path: "" };
 
   await writeCreatedFile(output, compiled);
-
   await BLOCK_LINE_SUCCESS(`${sourceFile.path} → ${output}`);
 
   return config;
