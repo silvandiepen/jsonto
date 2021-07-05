@@ -1,8 +1,10 @@
+type Data = any; // TODO: Type Data
+
 export interface File {
   name: string;
   path: string;
   file?: string;
-  data?: any;
+  data?: Data;
 }
 
 export interface Config {
