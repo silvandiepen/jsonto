@@ -14,7 +14,10 @@
   },
   "keywords": [
     "convert",
-    "json"
+    "json",
+    "sass",
+    "scss",
+    "settings"
   ],
   "author": "Sil van Diepen",
   "license": "MIT",
