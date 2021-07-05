@@ -38,9 +38,26 @@ npm install @sil/jsonto --save-dev
 npm run build:config
 ```
 
+### Command
+
+You can run json also using NPX. Example command;
+
+```bash
+npx @sil/jsonto source.json output.scss example.template
+```
+
+### Arguments
+
+JsonTo needs 3 arguments as in the example above
+
+1. Source (json file)
+2. Output (.scss)
+3. Template file
+
+
 ### Template
 
-The template engine uses (EJS)[https://ejs.co/], so you can add anything in the file you want. A simple example to build a Sass config file;
+The template engine uses [EJS](https://ejs.co), so you can add anything in the file you want. A simple example to build a Sass config file;
 
 **my-config.template**
 
