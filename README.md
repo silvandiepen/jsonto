@@ -8,7 +8,7 @@ JSON to makes it possible to create any type of file using JSON data. We provide
 
 It is initially made to use create Sass/SCSS files from JSON. Defining settings in a json file which can be used by a frontend and automatically generate SCSS settings files.
 
-### Usage
+### Usage (NPM)
 
 1. Install the script
 
@@ -25,7 +25,7 @@ npm install @sil/jsonto --save-dev
     ...
     "scripts": {
         ...
-        "build:config": "@sil/jsonto src/config.json src/scss/config.scss src/templates/my-config.template"
+        "build:config": "jsonto src/config.json src/scss/config.scss src/templates/my-config.template"
         ...
     }
     ...
@@ -38,7 +38,7 @@ npm install @sil/jsonto --save-dev
 npm run build:config
 ```
 
-### Command
+### Command (NPX)
 
 You can run json also using NPX. Example command;
 
@@ -65,7 +65,7 @@ The template engine uses [EJS](https://ejs.co), so you can add anything in the f
 $my-config: (
     <% Object.keys(data).forEach((key, index)=>{ -%>
         "<%- key %>": "<%- data[key]%>"<% if(index == data.length){ %>,<%}%>
-    <% >}) -%>
+    <% }) -%>
 )!default;
 ```
 
