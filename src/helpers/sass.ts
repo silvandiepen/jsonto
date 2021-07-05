@@ -9,11 +9,7 @@ export const isCssFunction = (str: string): boolean => {
   return isFunction;
 };
 
-export const isCssPropertyValue = (str: string): boolean => {
-  const values = ["uppercase", "lowercase", "capitalize"];
-
-  return values.includes(str);
-};
+export const isCssPropertyValue = (str: string): boolean => ["uppercase", "lowercase", "capitalize"].includes(str);
 
 export const isCssNumber = (str: string | number): boolean => {
   let isNumber = false;
@@ -24,9 +20,8 @@ export const isCssNumber = (str: string | number): boolean => {
 
   return isNumber;
 };
-export const isCssBoolean = (str: string): boolean => {
-  return str == "true" || str == "false";
-};
+
+export const isCssBoolean = (str: string): boolean => str == "true" || str == "false";
 
 export const SassValue = (input: any) => {
   let convertedInput = "";
