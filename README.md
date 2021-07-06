@@ -61,12 +61,24 @@ The template engine uses [EJS](https://ejs.co), so you can add anything in the f
 
 **my-config.template**
 
+An example to use, this will just generate the data as is.
+
 ```
 $my-config: (
     <% Object.keys(data).forEach((key, index)=>{ -%>
         "<%- key %>": "<%- data[key]%>"<% if(index == data.length){ %>,<%}%>
     <% }) -%>
 )!default;
+```
+
+But you can also use the sassData to generate the settings
+
+```
+$my-sass-configs: (
+  <% if (data) { -%>
+    <%- sassData %>
+  <% } -%>
+) !default;
 ```
 
 ### SCSS
