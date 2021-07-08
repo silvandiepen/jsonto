@@ -5,11 +5,13 @@ export const isCssFunction = (str: string): boolean => {
     str.startsWith("var(") ||
     str.startsWith("max(") ||
     str.startsWith("min(") ||
-    str.startsWith("calc(");
+    str.startsWith("calc(") ||
+    str.startsWith("env(");
   return isFunction;
 };
 
-export const isCssPropertyValue = (str: string): boolean => ["uppercase", "lowercase", "capitalize"].includes(str);
+export const isCssPropertyValue = (str: string): boolean =>
+  ["uppercase", "lowercase", "capitalize"].includes(str);
 
 export const isCssNumber = (str: string | number): boolean => {
   let isNumber = false;
@@ -18,10 +20,13 @@ export const isCssNumber = (str: string | number): boolean => {
   if (typeof str == "string")
     if (parseInt(str) > 0 || str.startsWith("0.")) isNumber = true;
 
+  // console.log(str, isNumber);
+
   return isNumber;
 };
 
-export const isCssBoolean = (str: string): boolean => str == "true" || str == "false";
+export const isCssBoolean = (str: string): boolean =>
+  str == "true" || str == "false";
 
 export const SassValue = (input: any) => {
   let convertedInput = "";
@@ -32,9 +37,11 @@ export const SassValue = (input: any) => {
     (typeof input == "string" && isCssBoolean(input)) ||
     (typeof input == "string" && input.startsWith("'"))
   ) {
-    convertedInput = input;
+    convertedInput = `${input}`;
   } else if (typeof input == "string") {
     convertedInput = `"${input}"`;
+  } else if (typeof input == "boolean") {
+    convertedInput = input ? "true" : "false";
   } else if (Array.isArray(input)) {
     convertedInput = `(${input.join(", ")})`;
   } else {
