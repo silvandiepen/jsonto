@@ -11,3 +11,10 @@ export interface Config {
   files: File[];
   compiled: string;
 }
+export interface Arguments {
+  cli?: boolean;
+  input?: string;
+  output?: string;
+  template?: string;
+  noFile?: boolean;
+}

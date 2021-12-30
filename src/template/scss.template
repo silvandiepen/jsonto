@@ -1,0 +1,5 @@
+$stil-default-settings: (
+  <% if (data) { -%>
+    <%- sassData %>
+  <% } -%>
+) !default;

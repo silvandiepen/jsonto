@@ -1,17 +1,11 @@
-import { asyncForEach } from "cli-block";
+import cssFunctions from "../../data/functions";
+import cssValues from "../../data/values";
 
-export const isCssFunction = (str: string): boolean => {
-  const isFunction =
-    str.startsWith("var(") ||
-    str.startsWith("max(") ||
-    str.startsWith("min(") ||
-    str.startsWith("calc(") ||
-    str.startsWith("env(");
-  return isFunction;
-};
+export const isCssFunction = (str: string): boolean =>
+  cssFunctions.indexOf(`${str}(`) === 0;
 
 export const isCssPropertyValue = (str: string): boolean =>
-  ["uppercase", "lowercase", "capitalize"].includes(str);
+  cssValues.includes(str);
 
 export const isCssNumber = (str: string | number): boolean => {
   let isNumber = false;
@@ -19,8 +13,6 @@ export const isCssNumber = (str: string | number): boolean => {
   if (typeof str == "number") isNumber = true;
   if (typeof str == "string")
     if (parseInt(str) > 0 || str.startsWith("0.")) isNumber = true;
-
-  // console.log(str, isNumber);
 
   return isNumber;
 };
