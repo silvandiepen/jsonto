@@ -6,7 +6,8 @@
   "bin": "dist/index.js",
   "scripts": {
     "build": "tsc",
-    "test": "jest"
+    "test": "jest",
+    "prepublishOnly": "npm run test"
   },
   "repository": {
     "type": "git",
@@ -26,12 +27,18 @@
   },
   "homepage": "https://github.com/silvandiepen/jsonto#readme",
   "devDependencies": {
+    "@babel/preset-env": "^7.18.6",
     "@types/ejs": "^3.0.5",
+    "@types/jest": "^28.1.5",
     "@types/node": "^14.14.13",
+    "babel-jest": "^28.1.3",
+    "ts-jest": "^28.0.6",
     "typescript": "^4.1.3"
   },
   "dependencies": {
-    "ejs": "^3.1.5",
-    "cli-block": "^1.2.3"
+    "@sil/color": "^0.1.3",
+    "@sil/sass": "^0.0.2",
+    "cli-block": "^1.2.3",
+    "ejs": "^3.1.5"
   }
 }

@@ -57,7 +57,7 @@ JsonTo needs 3 arguments as in the example above
 
 ### Template
 
-The template engine uses [EJS](https://ejs.co), so you can add anything in the file you want. A simple example to build a Sass config file;
+The template engine uses (EJS)[https://ejs.co], so you can add anything in the file you want. A simple example to build a Sass config file;
 
 **my-config.template**
 
